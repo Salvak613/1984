@@ -1,5 +1,7 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Image from "next/image"
+import styles from "./page.module.css"
+import { appRoutes } from "@/data/ROUTES"
+import Link from "next/link"
 
 export default function Home() {
   return (
@@ -18,6 +20,13 @@ export default function Home() {
             Get started by editing <code>src/app/page.tsx</code>.
           </li>
           <li>Save and see your changes instantly.</li>
+          <li>
+            Now go on{" "}
+            <Link className={styles.secondary} href={appRoutes.INFOS}>
+              Infos
+            </Link>{" "}
+            page to test a sample of NextJS app.
+          </li>
         </ol>
 
         <div className={styles.ctas}>
@@ -91,5 +100,5 @@ export default function Home() {
         </a>
       </footer>
     </div>
-  );
+  )
 }

@@ -6,20 +6,26 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "db:migrate": "ts-node --project script/tsconfig.script.json script/migrate.ts",
+    "db:seed": "ts-node --project script/tsconfig.script.json script/seed.ts"
   },
   "dependencies": {
+    "dotenv": "^16.5.0",
+    "mysql2": "^3.14.1",
+    "next": "15.3.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.2"
+    "testing-scholar-app": "file:"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
+    "@eslint/eslintrc": "^3",
+    "@types/node": "^20.17.48",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
-    "@eslint/eslintrc": "^3"
+    "ts-node": "^10.9.2",
+    "typescript": "^5"
   }
 }
