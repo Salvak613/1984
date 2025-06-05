@@ -4,12 +4,10 @@ import { scramble } from "@/utils/scramble";
 
 type CitizenInformationsProps = {
   citizen: any;
-  setShowSpeakerMessage: (show: boolean) => void;
 };
 
 export default function CitizenInformations({
   citizen,
-  setShowSpeakerMessage,
 }: CitizenInformationsProps) {
   if (!citizen) return null;
 
@@ -33,13 +31,11 @@ export default function CitizenInformations({
   useEffect(() => {
     setShowDialog(false);
     setShowPassport(false);
-    setShowSpeakerMessage(false);
     setAnalyzing(false);
-  }, [citizen, setShowSpeakerMessage]);
+  }, [citizen]);
 
   const handleRequestPassport = () => {
     setShowDialog(true);
-    setShowSpeakerMessage(true);
     setShowPassport(true);
     setAnalyzing(true);
     setTimeout(() => {
@@ -62,6 +58,14 @@ export default function CitizenInformations({
         }
       });
     }
+
+    if (showPassport && citizen.passeport === 0 && passportRef.current) {
+      const errorElement = passportRef.current.querySelector("p");
+      if (errorElement) {
+        errorElement.textContent = "";
+        scramble(errorElement, "ERROR", { delay: 0 });
+      }
+    }
   }, [showPassport, citizen]);
 
   return (
@@ -78,6 +82,11 @@ export default function CitizenInformations({
             {passportMessages.map((msg, idx) => (
               <p key={idx}></p>
             ))}
+          </div>
+        )}
+        {showPassport && citizen.passeport === 0 && (
+          <div className={styles.passport2} ref={passportRef}>
+            <p></p>
           </div>
         )}
       </div>

@@ -1,51 +1,95 @@
 @use "sass:math";
 
-.container {
+.openButton {
   position: fixed;
-  top: 75%;
-  left: 20%;
-  transform: translate(-50%, -50%);
-  width: 350px;
-  height: 310px;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.manuelContainer {
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  border-radius: 20px;
-  background: linear-gradient(145deg, #272727, #2e2e2e);
-  box-shadow: 5px 5px 10px #212121, -5px -5px 10px #353535;
-  padding: 20px;
+  padding: 16px;
+  width: 600px;
+  height: 550px;
+  background-color: rgb(210, 210, 163);
+  border-radius: 15px;
+  color: black;
+  overflow-x: auto;
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px, rgba(0, 0, 0, 0.22) 0px 6px 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
 }
 
-.passport {
-  text-shadow: 0 0 8px rgba(255, 221, 136, 0.3),
-    0 0 15px rgba(255, 221, 136, 0.2);
-  font-family: Courier, monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0.8em 0;
-  font-size: 18px;
-  color: var(--color);
+.manuelContainerEnter {
+  opacity: 1;
+  pointer-events: auto;
+  animation: fadeInUp 0.3s cubic-bezier(0.25, 0.5, 0.5, 1);
 }
 
-.passport2 {
-  text-shadow: 0 0 8px rgba(255, 221, 136, 0.3),
-    0 0 15px rgba(255, 221, 136, 0.2);
-  font-family: Courier, monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0.8em 0;
-  font-size: 18px;
-  color: red;
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.screen {
-  background-color: rgb(22, 22, 22);
-  width: 300px;
-  height: 210px;
-  border: 2px solid #00000041;
-  border-radius: 2px;
-  padding: 5px;
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  width: 5px;
+  height: auto;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.tab {
+  background: rgba(0, 0, 0, 0.203);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+.activeTab {
+  background-color: #000000ac;
+  color: white;
+}
+
+.content {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px;
+  width: 100%;
+  max-width: 600px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
 }
 
 @font-face {
@@ -73,10 +117,10 @@
 }
 
 .button-inside {
-  --background-color: #f05a22;
-  --background-color-active: #ee5529;
-  --light-shadow-color: #ffb147;
-  --dark-shadow-color: #d72d12;
+  --background-color: #676767;
+  --background-color-active: #575454;
+  --light-shadow-color: #b8b7b5;
+  --dark-shadow-color: #383838;
   --text-color: #fff;
   display: inline-block;
   position: relative;

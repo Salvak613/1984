@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./ButtonPass.module.css";
+import styles from "./ButtonPass.module.scss";
 
 type ButtonPassProps = {
   citizen: any;
@@ -33,12 +33,14 @@ export default function ButtonPass({
 
   return (
     <>
-      <button onClick={Pass} className={styles.button}>
-        Pass
-      </button>
-      <button onClick={Arrest} className={styles.button}>
-        Arrest
-      </button>
+      <div className={styles.buttonsContainer}>
+        <button onClick={Pass} className={styles.button} type="button">
+          <span className={styles["button-1"]}>Laisser passer</span>
+        </button>
+        <button onClick={Arrest} className={styles.button} type="button">
+          <span className={styles["button-2"]}>Arreter citoyen</span>
+        </button>
+      </div>
     </>
   );
 }
