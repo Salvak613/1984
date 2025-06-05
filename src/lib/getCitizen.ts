@@ -1,9 +1,9 @@
 import { infoMessages } from "@/data/responseMessages";
 import { apiRoutes } from "@/data/ROUTES";
-import { InfoModel } from "@/model/InfoModel";
+import { Dynastie1984Model } from "@/model/dynastie1984Model";
 
-export async function getOne(id: number): Promise<InfoModel> {
-  const res = await fetch(`${apiRoutes.INFOS}/${id}`, {
+export async function getOne(id: number): Promise<Dynastie1984Model> {
+  const res = await fetch(`${apiRoutes.DYNASTIE1984}/${id}`, {
     method: "GET",
     headers: {
       Accept: "application/json",
