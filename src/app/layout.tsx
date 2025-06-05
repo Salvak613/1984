@@ -24,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <img src="./img/logo.png" alt="Logo Control Point" className="logo" />
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>

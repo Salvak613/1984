@@ -38,3 +38,17 @@ a {
 ul {
   list-style-type: none;
 }
+
+p {
+  font-family: Courier, monospace;
+}
+
+.logo {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  filter: opacity(0.05);
+}
